@@ -15,7 +15,7 @@ jobs:
       - name: Validate branch name
         run: |
           BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}")
-          if [[ ! $BRANCH_NAME =~ ^feature\/ci-cd$ ]]; then
+          if [[ ! $BRANCH_NAME =~ ^feature\/[a-z0-9_-]+$ ]]; then
             echo "Error: Wrong branch name"
             exit 1
           fi
