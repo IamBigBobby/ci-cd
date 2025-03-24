@@ -1,0 +1,19 @@
+name: Validate Branch Name
+
+on:
+  push:
+    branches:
+      - 'feature/ci-cd'
+
+jobs:
+  validate-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate branch name
+        run: |
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}")
+          if [[ ! $BRANCH_NAME =~ ^feature\/ci-cd$ ]]; then
+            echo "Error: Wrong branch name"
+            exit 1
+          fi
+        shell: bash
