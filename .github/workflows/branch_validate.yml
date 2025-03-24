@@ -14,8 +14,11 @@ jobs:
     steps:
       - name: Validate branch name
         run: |
-
-          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          if [[ "$GITHUB_EVENT_NAME" == "push" ]]; then
+            BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          else
+            BRANCH_NAME="${GITHUB_HEAD_REF}"
+          fi
 
           echo "Branch name: $BRANCH_NAME"
 
@@ -24,3 +27,4 @@ jobs:
             exit 1
           fi
         shell: bash
+
