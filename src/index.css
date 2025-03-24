@@ -586,7 +586,7 @@ h2 {
 }
 
 .nav__link {
-  color: #909090;
+  color: #000000;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -930,7 +930,7 @@ h2 {
 .footer {
   width: 100%;
   position: relative;
-  background-color: #2F8569;
+  background-color: #005238;
   color: #FFFFFF;
 }
 
@@ -1167,7 +1167,7 @@ h2 {
   font-size: 14px;
   line-height: 1;
   background-color: #22795D;
-  color: #FFFFFF;
+  color: #000000;
   position: relative;
   margin-bottom: 5px;
 }
@@ -1200,7 +1200,7 @@ h2 {
 }
 
 .product__type {
-  color: #89c1b0;
+  color: #000000;
 }
 
 .product__title {
@@ -1239,8 +1239,8 @@ h2 {
 .product__stock {
   margin-top: 5px;
   margin-right: 10px;
-  color: #89c1b0;
-  font-size: 0.8em;
+  color: #000000;
+  font-size: 1.5em;
   text-align: right;
 }
 
