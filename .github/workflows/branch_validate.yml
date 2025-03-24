@@ -1,4 +1,4 @@
-name: Validate Branch Name
+name: Validate Branch Name on Push and Merge to Main
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - 'feature/*'
   pull_request:
     branches:
-    - 'main'
+      - 'main'
 
 jobs:
   validate-branch:
@@ -14,9 +14,13 @@ jobs:
     steps:
       - name: Validate branch name
         run: |
-          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}")
+
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+
+          echo "Branch name: $BRANCH_NAME"
+
           if [[ ! "$BRANCH_NAME" =~ ^feature\/[a-z0-9-]+$ ]]; then
-            echo "Error: Wrong branch name"
+            echo "Error: Wrong branch name. Expected format: feature/xxx."
             exit 1
           fi
         shell: bash
